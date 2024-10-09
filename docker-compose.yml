@@ -1,0 +1,14 @@
+services:
+  ubuntu-vnc:
+    image: dorowu/ubuntu-desktop-lxde-vnc  # Imagen ligera de Ubuntu con entorno LXDE y VNC
+    container_name: ubuntu-vnc-container
+    restart: always
+    ports:
+      - "5900:5900"  # Puerto VNC
+    environment:
+      - USER=root  # Usuario
+      - PASSWORD=vncpassword  # Contraseña para VNC
+      - GEOMETRY=1280x800  # Resolución de pantalla
+    volumes:
+      - ./data:/root  # Monta un volumen local
+    shm_size: "512m"  # Tamaño de la memoria compartida para mejorar rendimiento de aplicaciones gráficas

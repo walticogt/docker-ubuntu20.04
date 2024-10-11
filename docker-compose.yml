@@ -1,14 +1,31 @@
 services:
   ubuntu-vnc:
-    image: dorowu/ubuntu-desktop-lxde-vnc  # Imagen ligera de Ubuntu con entorno LXDE y VNC
+    image: consol/ubuntu-xfce-vnc  # Imagen de Ubuntu con XFCE y VNC/noVNC preconfigurado (superligero)
     container_name: ubuntu-vnc-container
-    restart: always
+    restart: on-failure #always
+    privileged: true  # Habilitar modo privilegiado
+    user: root  # Ejecutar como root
     ports:
       - "5900:5900"  # Puerto VNC
+      - "6901:6901"  # Puerto para noVNC (acceso vía navegador web)
+      - "2222:22"    # Puerto para SSH (redireccionado al puerto 2222 del host)
     environment:
       - USER=root  # Usuario
       - PASSWORD=vncpassword  # Contraseña para VNC
       - GEOMETRY=1280x800  # Resolución de pantalla
+      - DEPTH=24  # Profundidad de color
+      - HTTP_PORT=6901  # Puerto para acceso web con noVNC
     volumes:
       - ./data:/root  # Monta un volumen local
     shm_size: "512m"  # Tamaño de la memoria compartida para mejorar rendimiento de aplicaciones gráficas
+    command: >
+      /bin/bash -c "
+      echo '#!/bin/sh' > /usr/sbin/policy-rc.d &&
+      echo 'exit 0' >> /usr/sbin/policy-rc.d &&
+      chmod +x /usr/sbin/policy-rc.d &&
+      apt-get update &&
+      apt-get install -y openssh-server &&
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      echo 'root:toor' | chpasswd &&
+      service ssh restart &&
+      /usr/sbin/sshd -D"

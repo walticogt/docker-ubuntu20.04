@@ -15,7 +15,7 @@
 # Para ver el Log de carga
 	docker logs ubuntu-vnc-container
 
-# En caso no se ejecutó el script: setup_ssh.sh 
+# Ejecutar el script dentro de su terminal del contenedor: setup_ssh.sh 
 	/etc/cont-init.d/99-setup_ssh 
 
 # clave: vncpassword

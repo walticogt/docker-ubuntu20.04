@@ -6,7 +6,7 @@ services:
     privileged: true  # Habilitar modo privilegiado
     user: root  # Ejecutar como root
     ports:
-      - "5900:5900"  # Puerto VNC
+      - "5901:5901"  # Puerto VNC
       - "6901:6901"  # Puerto para noVNC (acceso vía navegador web)
       - "2222:22"    # Puerto para SSH (redireccionado al puerto 2222 del host)
     environment:

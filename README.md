@@ -8,6 +8,7 @@
 
 # Accesible por web (vncpassword)
 	http://localhost:6901 
-# clave: vncpasswrd
+# 
+# clave: vncpassword
 # clave root: toor
 

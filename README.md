@@ -8,7 +8,13 @@
 
 # Accesible por web (vncpassword)
 	http://localhost:6901 
-# 
+
+# Para entrar al Docker a su terminal
+	docker exec -it ubuntu-vnc-container /bin/bash
+
+# En caso no se ejecutó el script: setup_ssh.sh 
+	/etc/cont-init.d/99-setup_ssh 
+
 # clave: vncpassword
 # clave root: toor
 

@@ -12,6 +12,9 @@
 # Para entrar al Docker a su terminal
 	docker exec -it ubuntu-vnc-container /bin/bash
 
+# Para ver el Log de carga
+	docker logs ubuntu-vnc-container
+
 # En caso no se ejecutó el script: setup_ssh.sh 
 	/etc/cont-init.d/99-setup_ssh 
 

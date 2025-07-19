@@ -15,8 +15,11 @@
 # Para ver el Log de carga
 	docker logs ubuntu-vnc-container
 
-# Ejecutar el script dentro de su terminal del contenedor: setup_ssh.sh 
+# Ejecutar el script dentro de su terminal del contenedor para instalar SSH en el puerto 2222:22  
 	/etc/cont-init.d/99-setup_ssh 
+
+# Volver a ejecutar el comando anterior en caso reinicien o el servicio SSH se detenga, volver a inicializar, para revisar si esta escuchando.
+	ss -tuln | grep 22
 
 # clave: vncpassword
 # clave root: toor

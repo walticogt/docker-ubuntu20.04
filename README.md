@@ -1,6 +1,7 @@
-# docker-ubuntu20.04 in Docker with VNC Server
+# Ubuntu20.04 in Docker with VNC Server 5901 y 6901 en Web, SSH preconfigurado 2222
 
-# Desde powershell donde se encuentra "docker-compose.yml"
+# Requisitos:
+	Clonar el proyecto
 	docker-compose up -d
 
 # Requiere VNC para conectarte (no requieres password):

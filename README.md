@@ -23,6 +23,7 @@
 # Ejecutar el script dentro de su terminal del contenedor para instalar SSH en el puerto 2222:22  
 	/etc/cont-init.d/99-setup_ssh 
 
-# Volver a ejecutar el comando anterior en caso reinicien o el servicio SSH se detenga, volver a inicializar, para revisar si esta escuchando.
+# Confirme el servicio SSH no se detenga, iniciar despues de cada reinicio.
 	ss -tuln | grep 22
+ 	service ssh start
 
